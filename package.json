@@ -15,7 +15,9 @@
     "D": "^1.0.0",
     "express": "^4.17.2",
     "mongoose": "^6.1.7",
+    "reflect-metadata": "^0.1.13",
     "socket.io": "^4.4.1",
+    "tsyringe": "^4.6.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

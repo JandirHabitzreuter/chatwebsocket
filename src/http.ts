@@ -3,6 +3,7 @@ import path from "path";
 import {createServer} from "http";
 import {Server} from "socket.io";
 import mongoose  from "mongoose";
+import "reflect-metadata";
 
 const app = express();
 const server = createServer(app);
