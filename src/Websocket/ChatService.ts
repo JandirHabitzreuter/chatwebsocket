@@ -1,6 +1,7 @@
 import { container } from "tsyringe";
 import {io} from "../http";
 import { CreateUserService } from "../services/CreateUserService";
+import { GetAllUsersService } from "../services/GetAllUserServices";
 
 io.on("connect", Socket =>{
   
@@ -15,8 +16,15 @@ io.on("connect", Socket =>{
             socket_id : Socket.id
             });
 
-            console.log(user);
+       Socket.broadcast.emit("new_users", user);
 
+    });
+
+    Socket.on("get_users", async(callback) =>{
+        const getAllUser = container.resolve(GetAllUsersService);
+        const users  = await getAllUser.execute();
+
+        callback(users);
     });
 
 });

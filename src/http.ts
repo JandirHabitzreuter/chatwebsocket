@@ -10,7 +10,7 @@ const server = createServer(app);
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-mongoose.connect("mongodb://localhost/rocketsocket");
+mongoose.connect("mongodb://localhost:3000/rocketsocket");
 
 const io = new Server(server); // Criar o servidor do Socket
 io.on("connection",(Socket)=>{
